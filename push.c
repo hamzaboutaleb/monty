@@ -10,7 +10,7 @@ void push_command(stack_t **stack, unsigned int line_number)
 	int value;
 
 	value = atoi(app.arg);
-	if (app.arg == NULL || is_number(app.arg) == 0 || value == 0)
+	if (app.arg == NULL && is_number(app.arg) == 0 || value == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
