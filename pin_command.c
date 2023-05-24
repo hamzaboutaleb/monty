@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
-  * pin_command - print last elemnt
+  * pint_command - print last elemnt
   * @stack: pointer to stack
-  @line: line
+  * @line: line
   */
 void pint_command(stack_t **stack, unsigned int line)
 {
