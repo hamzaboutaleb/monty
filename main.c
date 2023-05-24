@@ -2,11 +2,25 @@
 
 app_t app;
 
-void init_app()
+void init_app(FILE* file)
 {
+	stack_t *stack;
+	stack_t *tail;
 
+	app.arg = NULL;
+	app.buffer = NULL;
+	app.head = NULL;
+	app.tail = NULL;
+	app.file = file;
+	app.line = 1;
 }
 
+void end_app()
+{
+	free_list();
+	free(app.buffer);
+	fclose(app.file);
+}
 
 /**
   * init - init program and open file
@@ -14,9 +28,9 @@ void init_app()
   * @argv: arg list
   * Return: file
   */
-int init(int argc, char *argv[])
+FILE* init(int argc, char *argv[])
 {
-	int file;
+	FILE* file;
 	char *file_name;
 
 	if (argc != 2)
@@ -26,9 +40,9 @@ int init(int argc, char *argv[])
 	}
 	file_name = argv[1];
 
-	file = open(file_name, O_RDONLY);
+	file = fopen(file_name,"r");
 
-	if (file == -1)
+	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", file_name);
 		exit(EXIT_FAILURE);
@@ -46,21 +60,15 @@ int init(int argc, char *argv[])
 
 int main(int argc, char *argv[])
 {
-	stack_t *stack;
 
-	int file;
-	int file_read;
-	char *buffer;
+	FILE* file;
 
 	file = init(argc, argv);
+	init_app(file);
+	
+	read_file();
 
-	stack = (stack_t *)malloc_memo(sizeof(stack_t));
-	buffer = (char *)malloc_memo(1024);
-
-	file_read = read(file, buffer, 1024);
-	printf("%s", buffer);
-
-	close(file);
+	end_app();
 	return (0);
 }
 

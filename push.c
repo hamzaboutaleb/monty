@@ -1,47 +1,33 @@
 #include "monty.h"
-
-
-instruction_t *push(void (*f)(stack_t**, unsigned int))
-{
-	instruction_t* new_instr;
-
-	new_instr = (instruction_t *)malloc_memo(sizeof(instruction_t));
-
-	new_instr->opcode = "push";
-	new_instr->f = &f;
-
-	return (new_instr);
-}
-
-void push_fun(stack_t **stack, unsigned int line_number)
-{
-	if (g_value =)
-}
-
-
 /**
-  * add_dnodeint_end - add node at the end of dbly linked list
-  * @head: head
-  * @n: value
-  * Return: node
+  * push_command - function push to stack
+  * @stack: pointer to stack
+  * @line_number: current line
   */
-stack_t *add_dnodeint_end(stack_t **head, const int n)
+void push_command(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
-	stack_t *curr;
+	int value;
 
-	node = (stack_t *) malloc_memo(sizeof(dlistint_t));
-	node->n = n;
-	curr = *head;
-	if (!curr)
+	if (app.arg == NULL && is_number(app.arg) == 0)
 	{
-		(*head) = node;
-		return (node);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
 	}
-	while (curr->next)
-		curr = curr->next;
-	node->prev = curr;
-	curr->next = node;
+	value = atoi(app.arg);
+	node = stack_node(value, NULL, NULL);
 
-	return (node);
+	if (*stack == NULL)
+	{
+		app.head = node;
+		app.tail = node;
+		return;
+	}
+
+	node->prev = app.tail;
+	app.tail->next = node;
+	app.tail = node;
 }
+
+
+

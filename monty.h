@@ -5,22 +5,9 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
+#include <ctype.h>
+#include <string.h>
 
-/**
-  * struct app - global app structure
-  * @arg: opcode argument
-  * @stack: pointer to stack
-  * @buffer: app buffer;
-  * @file: file descr
-  * @stack_t tail: tail pointer;
-  */
-typdef struct app {
-	char *arg;
-	stack_t *stack;
-	char *buffer;
-	int file;
-	stack_t *tail;
-} app_t
 
 
 /**
@@ -34,9 +21,9 @@ typdef struct app {
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+ 	struct stack_s *next;
 } stack_t;
 
 
@@ -50,13 +37,37 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+ 	char *opcode;
+ 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+
+/**
+  * struct app - global app structure
+  * @arg: opcode argument
+  * @stack: pointer to stack
+  * @buffer: app buffer;
+  * @file: file descr
+  * @stack_t tail: tail pointer;
+  */
+typedef struct app {
+	char *arg;
+	stack_t *head;
+	char *buffer;
+	FILE* file;
+	stack_t *tail;
+	unsigned int line;
+} app_t;
 
 extern app_t app;
 
+
+stack_t *stack_node(int n, stack_t *prev, stack_t *next);
 void *malloc_memo(size_t size);
-void instruction_err(int line_numbern char *opcode);
-stack_t *add_dnodeint_end(stack_t **head, const int n)
+void instruction_err(int line_numbern, char *opcode);
+void read_file(void);
+void push_command(stack_t **stack, unsigned int line_num);
+void pall_command(stack_t **s, unsigned int line);
+int is_number(char *s);
+void free_list(void);
 #endif

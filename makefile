@@ -12,4 +12,6 @@ build:
 	@gcc ${CFLAGS} *.c -o monty
 
 run: build
-	@./monty "$f"
+	@./monty code
+run_m: build
+	@valgrind ./monty code
