@@ -44,7 +44,6 @@ void read_file(void)
 	int rd;
 	size_t len = 0;
 	char *token;
-	char *value;
 
 	while ((rd = getline(&app.buffer, &len, app.file)) != EOF)
 	{
