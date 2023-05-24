@@ -76,4 +76,5 @@ int is_number(char *s);
 void free_list(void);
 void pint_command(stack_t **stack, unsigned int line);
 char *next_token();
+void end_app(void);
 #endif
