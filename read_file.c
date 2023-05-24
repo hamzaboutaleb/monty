@@ -50,7 +50,10 @@ void read_file(void)
 	{
 		token = strtok(app.buffer, " \n\t");
 		if (token == NULL)
+		{
+			app.line++;
 			continue;
+		}
 		if (strcmp(token, "push") == 0)
 		{
 			value = strtok(NULL, " \n\t");
@@ -69,14 +72,6 @@ void read_file(void)
 			{
 				fprintf(stderr, "L%d: usage: pall\n", app.line);
 				exit(EXIT_FAILURE);
-			}
-		}
-		if (strcmp(token, "pall") == 0)
-		{
-			value = strtok(NULL, " \n\t");
-			if (value != NULL)
-			{
-				
 			}
 		}
 		handle_token(token);
