@@ -51,8 +51,13 @@ void read_file(void)
 		token = strtok(app.buffer, " \n\t");
 		if (strcmp(token, "push") == 0)
 		{
-			value = strtok(NULL, " \t");
+			value = strtok(NULL, " \n\t");
 			app.arg = value;
+			value = strtok(NULL, " \n\t");
+			if (vaue != "")
+			{
+				printf(stderr, "L%d: usage: push integer", app.line);
+			}
 		}
 		handle_token(token);
 		app.line++;
