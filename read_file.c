@@ -46,9 +46,11 @@ void read_file(void)
 	char *token;
 	char *value;
 
-	while ((rd = getline(&app.buffer, &len, app.file)) > 1)
+	while ((rd = getline(&app.buffer, &len, app.file)) != EOF)
 	{
 		token = strtok(app.buffer, " \n\t");
+		if (token == NULL)
+			continue;
 		if (strcmp(token, "push") == 0)
 		{
 			value = strtok(NULL, " \n\t");
