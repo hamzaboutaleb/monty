@@ -11,6 +11,7 @@ void (*get_fun(char *opcode))(stack_t **, unsigned int line)
 	instruction_t cmd[] = {
 		{"push", push_command},
 		{"pall", pall_command},
+		{"pin", pin_command},
 		{NULL, NULL}
 	};
 
@@ -48,7 +49,7 @@ void read_file(void)
 	while ((rd = getline(&app.buffer, &len, app.file)) != EOF)
 	{
 		token = strtok(app.buffer, " \n\t");
-		if (token == NULL || *token == '\n' || *token == ' ')
+		if (token == NULL)
 		{
 			app.line++;
 			continue;
