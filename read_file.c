@@ -2,7 +2,7 @@
 
 /**
   * get_fun - return function for every op code
-  * @opcode - opcode name
+  * @opcode: opcode name
   * Return: function pointer to specifc opcode
   */
 void (*get_fun(char *opcode))(stack_t **, unsigned int line)
@@ -54,17 +54,7 @@ void read_file(void)
 			app.line++;
 			continue;
 		}
-		if (strcmp(token, "push") == 0)
-		{
-			value = strtok(NULL, " \n\t");
-			app.arg = value;
-			value = strtok(NULL, " \n\t");
-			if (value != NULL)
-			{
-				fprintf(stderr, "L%d: usage: push integer\n", app.line);
-				exit(EXIT_FAILURE);
-			}
-		}
+
 		handle_token(token);
 		app.line++;
 		free(app.buffer);

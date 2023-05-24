@@ -9,6 +9,12 @@ void push_command(stack_t **stack, unsigned int line_number)
 	stack_t *node;
 	int value;
 
+	app.arg = next_token();
+	if (app.arg == NULL || next_token() != NULL)
+	{
+		fprintf(stderr, "L%d: usage: push integer\n", app.line);
+		exit(EXIT_FAILURE);
+	}
 	value = atoi(app.arg);
 	if (app.arg == NULL && is_number(app.arg) == 0)
 	{
