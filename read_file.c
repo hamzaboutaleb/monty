@@ -65,15 +65,6 @@ void read_file(void)
 				exit(EXIT_FAILURE);
 			}
 		}
-		if (strcmp(token, "pall") == 0)
-		{
-			value = strtok(NULL, " \n\t");
-			if (value != NULL)
-			{
-				fprintf(stderr, "L%d: usage: pall\n", app.line);
-				exit(EXIT_FAILURE);
-			}
-		}
 		handle_token(token);
 		app.line++;
 		free(app.buffer);
