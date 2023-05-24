@@ -2,7 +2,11 @@
 #include <string.h>
 #include <ctype.h>
 
-
+/**
+  * get_fun - return function for every op code
+  * @opcode - opcode name
+  * Return: function pointer to specifc opcode
+  */
 void (*get_fun(char *opcode))(stack_t **, unsigned int line)
 {
 	int i;
@@ -22,6 +26,10 @@ void (*get_fun(char *opcode))(stack_t **, unsigned int line)
 	return (NULL);
 }
 
+/**
+  * handle_token - function to handle tokens
+  * @token: token
+  */
 void handle_token(char *token)
 {
 	void (*fun_ptr)(stack_t **, unsigned int);
@@ -30,7 +38,9 @@ void handle_token(char *token)
 	fun_ptr(&app.head, app.line);
 }
 
-
+/**
+  * read_file - read file
+  */
 void read_file(void)
 {
 	int rd;

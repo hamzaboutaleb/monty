@@ -1,7 +1,9 @@
 #include "monty.h"
 
-
-void free_list()
+/**
+  * free_list - free stack
+  */
+void free_list(void)
 {
 	stack_t *curr, *next;
 

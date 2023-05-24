@@ -19,13 +19,13 @@
  * Description: doubly linked list node structure
  * for stack, queues, LIFO, FIFO
  */
+
 typedef struct stack_s
 {
 	int n;
 	struct stack_s *prev;
- 	struct stack_s *next;
+	struct stack_s *next;
 } stack_t;
-
 
 /**
  * struct instruction_s - opcode and its function
@@ -37,29 +37,32 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
- 	char *opcode;
- 	void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 
 /**
   * struct app - global app structure
   * @arg: opcode argument
-  * @stack: pointer to stack
+  * @head: pointer to stack
+  * @tail: pointer to tail
   * @buffer: app buffer;
   * @file: file descr
-  * @stack_t tail: tail pointer;
+  * @line: current line
   */
-typedef struct app {
+
+typedef struct app
+{
 	char *arg;
 	stack_t *head;
 	char *buffer;
-	FILE* file;
+	FILE *file;
 	stack_t *tail;
 	unsigned int line;
 } app_t;
 
-extern app_t app;
+app_t app;
 
 
 stack_t *stack_node(int n, stack_t *prev, stack_t *next);

@@ -1,8 +1,10 @@
 #include "monty.h"
 
-app_t app;
-
-void init_app(FILE* file)
+/**
+  * init_app - intialize app
+  * @file: file to read
+  */
+void init_app(FILE *file)
 {
 	stack_t *stack;
 	stack_t *tail;
@@ -14,8 +16,10 @@ void init_app(FILE* file)
 	app.file = file;
 	app.line = 1;
 }
-
-void end_app()
+/**
+  * end_app - free memory
+  */
+void end_app(void)
 {
 	free_list();
 	free(app.buffer);
@@ -28,9 +32,9 @@ void end_app()
   * @argv: arg list
   * Return: file
   */
-FILE* init(int argc, char *argv[])
+FILE *init(int argc, char *argv[])
 {
-	FILE* file;
+	FILE *file;
 	char *file_name;
 
 	if (argc != 2)
@@ -40,7 +44,7 @@ FILE* init(int argc, char *argv[])
 	}
 	file_name = argv[1];
 
-	file = fopen(file_name,"r");
+	file = fopen(file_name, "r");
 
 	if (file == NULL)
 	{
@@ -61,11 +65,11 @@ FILE* init(int argc, char *argv[])
 int main(int argc, char *argv[])
 {
 
-	FILE* file;
+	FILE *file;
 
 	file = init(argc, argv);
 	init_app(file);
-	
+
 	read_file();
 
 	end_app();

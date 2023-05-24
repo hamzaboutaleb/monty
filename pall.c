@@ -1,6 +1,10 @@
 #include "monty.h"
 
-
+/**
+  * pall_command - show all stack
+  * @stack: pointer to stack
+  * @line: current line
+  */
 void pall_command(stack_t **s, unsigned int line)
 {
 	stack_t *el;
