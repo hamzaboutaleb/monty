@@ -58,8 +58,25 @@ void read_file(void)
 			value = strtok(NULL, " \n\t");
 			if (value != NULL)
 			{
-				fprintf(stderr, "L%d: usage: push integer", app.line);
+				fprintf(stderr, "L%d: usage: push integer\n", app.line);
 				exit(EXIT_FAILURE);
+			}
+		}
+		if (strcmp(token, "pall") == 0)
+		{
+			value = strtok(NULL, " \n\t");
+			if (value != NULL)
+			{
+				fprintf(stderr, "L%d: usage: pall\n", app.line);
+				exit(EXIT_FAILURE);
+			}
+		}
+		if (strcmp(token, "pall") == 0)
+		{
+			value = strtok(NULL, " \n\t");
+			if (value != NULL)
+			{
+				
 			}
 		}
 		handle_token(token);
