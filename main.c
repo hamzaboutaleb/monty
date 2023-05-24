@@ -17,7 +17,7 @@ void *malloc_memo(size_t size)
 	return (memo);
 }
 
-void instruction_err(int line_number, char * opcode)
+void instruction_err(int line_number, char *opcode)
 {
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 	exit(EXIT_FAILURE);
