@@ -8,7 +8,7 @@
 void pall_command(stack_t **s, unsigned int line)
 {
 	stack_t *el;
-
+	(void) line;
 
 	if (*s == NULL)
 		return;

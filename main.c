@@ -6,9 +6,6 @@
   */
 void init_app(FILE *file)
 {
-	stack_t *stack;
-	stack_t *tail;
-
 	app.arg = NULL;
 	app.buffer = NULL;
 	app.head = NULL;

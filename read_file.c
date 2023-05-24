@@ -1,6 +1,4 @@
 #include "monty.h"
-#include <string.h>
-#include <ctype.h>
 
 /**
   * get_fun - return function for every op code
