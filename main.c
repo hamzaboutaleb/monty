@@ -1,28 +1,19 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <fcntl.h>
-#include <unistd.h>
+#include "monty.h"
 
-void *malloc_memo(size_t size)
+app_t app;
+
+void init_app()
 {
-	void *memo;
 
-	memo = malloc(size);
-	if (memo == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed");
-		exit(EXIT_FAILURE);
-	}
-
-	return (memo);
 }
 
-void instruction_err(int line_number, char *opcode)
-{
-	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
-	exit(EXIT_FAILURE);
-}
 
+/**
+  * init - init program and open file
+  * @argc: arg count
+  * @argv: arg list
+  * Return: file
+  */
 int init(int argc, char *argv[])
 {
 	int file;
@@ -46,17 +37,29 @@ int init(int argc, char *argv[])
 	return (file);
 }
 
+/**
+  * main - entry point to program
+  * @argc: arg count
+  * @argv: arg list
+  * Return: 0
+  */
+
 int main(int argc, char *argv[])
 {
+	stack_t *stack;
+
 	int file;
 	int file_read;
 	char *buffer;
 
 	file = init(argc, argv);
+
+	stack = (stack_t *)malloc_memo(sizeof(stack_t));
 	buffer = (char *)malloc_memo(1024);
+
 	file_read = read(file, buffer, 1024);
 	printf("%s", buffer);
-	
+
 	close(file);
 	return (0);
 }

@@ -1,6 +1,28 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+/**
+  * struct app - global app structure
+  * @arg: opcode argument
+  * @stack: pointer to stack
+  * @buffer: app buffer;
+  * @file: file descr
+  * @stack_t tail: tail pointer;
+  */
+typdef struct app {
+	char *arg;
+	stack_t *stack;
+	char *buffer;
+	int file;
+	stack_t *tail;
+} app_t
+
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -32,5 +54,9 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern app_t app;
 
+void *malloc_memo(size_t size);
+void instruction_err(int line_numbern char *opcode);
+stack_t *add_dnodeint_end(stack_t **head, const int n)
 #endif
