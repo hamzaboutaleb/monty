@@ -74,6 +74,6 @@ void push_command(stack_t **stack, unsigned int line_num);
 void pall_command(stack_t **s, unsigned int line);
 int is_number(char *s);
 void free_list(void);
-void pin_command(stack_t **stack, unsigned int line);
+void pint_command(stack_t **stack, unsigned int line);
 char *next_token();
 #endif

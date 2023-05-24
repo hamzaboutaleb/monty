@@ -11,7 +11,7 @@ void (*get_fun(char *opcode))(stack_t **, unsigned int line)
 	instruction_t cmd[] = {
 		{"push", push_command},
 		{"pall", pall_command},
-		{"pin", pin_command},
+		{"pint", pint_command},
 		{NULL, NULL}
 	};
 

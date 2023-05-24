@@ -5,7 +5,7 @@
   * @stack: pointer to stack
   @line: line
   */
-void pin_command(stack_t **stack, unsigned int line)
+void pint_command(stack_t **stack, unsigned int line)
 {
 	(void) stack;
 	(void) line;
