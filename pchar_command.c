@@ -19,7 +19,7 @@ void pchar_command(stack_t **s, unsigned int ln)
 
 	last_value = app.tail->n;
 
-	if (last_value > 127 || last_value < 0)
+	if (last_value > 127 || last_value < 32)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", ln);
 		end_app();
