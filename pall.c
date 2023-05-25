@@ -13,8 +13,6 @@ void pall_command(stack_t **s, unsigned int line)
 
 	if (app.tail == NULL)
 		return;
-	if (next_token() != NULL)
-		return;
 	el = app.tail;
 	while (el != NULL)
 	{
