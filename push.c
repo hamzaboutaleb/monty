@@ -8,11 +8,12 @@ void push_command(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node;
 	int value;
+	(void) stack;
 
 	app.arg = strtok(next_token(), " \t\n");
 	if (app.arg == NULL || is_number(app.arg) == 0)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", app.line);
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		end_app();
 		exit(EXIT_FAILURE);
 	}
@@ -24,7 +25,7 @@ void push_command(stack_t **stack, unsigned int line_number)
 		end_app();
 		exit(EXIT_FAILURE);
 	}
-	if (*stack == NULL)
+	if (app.tail == NULL)
 	{
 		app.head = node;
 		app.tail = node;
