@@ -17,6 +17,7 @@ void (*get_fun(char *opcode))(stack_t **, unsigned int line)
 		{"add", add_command},
 		{"nop", nop_command},
 		{"sub", sub_command},
+		{"div", div_command},
 		{NULL, NULL}
 	};
 
