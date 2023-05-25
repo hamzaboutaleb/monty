@@ -63,7 +63,7 @@ typedef struct app
 	unsigned int line;
 } app_t;
 
-extern app_t app;
+app_t app;
 
 
 stack_t *stack_node(int n, stack_t *prev, stack_t *next);
@@ -77,7 +77,8 @@ void free_list(void);
 void pint_command(stack_t **stack, unsigned int line);
 void pop_command(stack_t**, unsigned int);
 void swap_command(stack_t**, unsigned int);
-void add_command(stack_t*, unsigned int);
+void add_command(stack_t**, unsigned int);
+void nop_command(stack_t**, unsigned int);
 char *next_token();
 void end_app(void);
 #endif
