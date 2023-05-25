@@ -10,19 +10,13 @@ void push_command(stack_t **stack, unsigned int line_number)
 	int value;
 
 	app.arg = strtok(next_token(), " \t\n");
-	if (app.arg == NULL)
+	if (app.arg == NULL || is_number(app.arg) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", app.line);
 		end_app();
 		exit(EXIT_FAILURE);
 	}
 	value = atoi(app.arg);
-	if (is_number(app.arg) == 0)
-	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		end_app();
-		exit(EXIT_FAILURE);
-	}
 	node = stack_node(value, NULL, NULL);
 	if (node == NULL)
 	{
