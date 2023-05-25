@@ -1,4 +1,4 @@
-#include "monty.c"
+#include "monty.h"
 
 /**
   * mod_command - modulo top 2 element
