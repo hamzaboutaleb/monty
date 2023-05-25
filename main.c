@@ -1,5 +1,7 @@
 #include "monty.h"
 
+app_t app;
+
 /**
   * init_app - intialize app
   * @file: file to read

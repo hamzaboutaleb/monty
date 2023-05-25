@@ -63,7 +63,7 @@ typedef struct app
 	unsigned int line;
 } app_t;
 
-app_t app;
+extern app_t app;
 
 
 stack_t *stack_node(int n, stack_t *prev, stack_t *next);
