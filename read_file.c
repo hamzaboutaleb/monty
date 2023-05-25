@@ -53,7 +53,7 @@ void read_file(void)
 	while ((rd = getline(&app.buffer, &len, app.file)) != EOF)
 	{
 		token = strtok(app.buffer, " \n\t");
-		if (token == NULL)
+		if (token == NULL || token[0] == '#')
 		{
 			app.line++;
 			continue;
