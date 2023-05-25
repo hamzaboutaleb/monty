@@ -13,6 +13,7 @@ void (*get_fun(char *opcode))(stack_t **, unsigned int line)
 		{"pall", pall_command},
 		{"pint", pint_command},
 		{"pop", pop_command},
+		{"swap", swap_command},
 		{NULL, NULL}
 	};
 
