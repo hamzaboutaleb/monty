@@ -25,6 +25,5 @@ void pop_command(stack_t **stack, unsigned int line)
 	}
 	else
 		app.tail = NULL, app.head = NULL;
-	printf("before free%d\n", ptr->n);
 	free(ptr);
 }
