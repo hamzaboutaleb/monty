@@ -75,6 +75,7 @@ void pall_command(stack_t **s, unsigned int line);
 int is_number(char *s);
 void free_list(void);
 void pint_command(stack_t **stack, unsigned int line);
+void pop_command(stack_t**, unsigned int);
 char *next_token();
 void end_app(void);
 #endif
