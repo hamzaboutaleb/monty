@@ -12,7 +12,7 @@ void add_command(stack_t **s, unsigned int line)
 	(void) s;
 	(void) line;
 
-	if (app.tail->prev == NULL)
+	if (!app.tail || app.tail->prev == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", app.line);
 		end_app();
@@ -22,5 +22,6 @@ void add_command(stack_t **s, unsigned int line)
 	temp = app.tail;
 	app.tail->prev->n += app.tail->n;
 	app.tail = app.tail->prev;
+	app.tail->next = NULL;
 	free(temp);
 }
