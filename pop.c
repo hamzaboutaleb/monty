@@ -11,9 +11,9 @@ void pop_command(stack_t **stack, unsigned int line)
 	(void) line;
 	(void) stack;
 
-	if (app.tail == NULL)
+	if (!app.tail)
 	{
-		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n", app.line);
+		dprintf(STDERR_FILENO, "L%u: can't pop an empty stack\n", app.line);
 		end_app();
 		exit(EXIT_FAILURE);
 	}
