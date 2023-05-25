@@ -6,9 +6,11 @@
   * @line: line
   */
 
-void add_command(ctack_t **s, unsigned int line)
+void add_command(stack_t **s, unsigned int line)
 {
 	stack_t *temp;
+	(void) s;
+	(void) line;
 
 	if (app.tail->prev == NULL)
 	{
