@@ -23,5 +23,5 @@ void sub_command(stack_t **s, unsigned int ln)
 	prev->n -= curr->n;
 	prev->next = NULL;
 	free(curr);
-
+	app.tail = prev;
 }
