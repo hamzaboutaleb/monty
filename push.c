@@ -17,7 +17,7 @@ void push_command(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	value = atoi(app.arg);
-	if (app.arg == NULL && is_number(app.arg) == 0)
+	if (is_number(app.arg) == 0)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		end_app();
