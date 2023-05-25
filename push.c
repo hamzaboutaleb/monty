@@ -27,7 +27,7 @@ void push_command(stack_t **stack, unsigned int line_number)
 	if (node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		app_end();
+		end_app();
 		exit(EXIT_FAILURE);
 	}
 	if (*stack == NULL)
