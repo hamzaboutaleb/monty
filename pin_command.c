@@ -10,7 +10,7 @@ void pint_command(stack_t **stack, unsigned int line)
 	(void) stack;
 	(void) line;
 
-	if (next_token() != NULL || app.head == NULL)
+	if (!app.tail)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", app.line);
 		end_app();
