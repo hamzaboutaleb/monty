@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
-  * nop_command - do nothing 
+  * nop_command - do nothing
   * @s: poiter to stack
   * @line: line
   */
