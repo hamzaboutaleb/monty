@@ -12,7 +12,7 @@ void sub_command(stack_t **s, unsigned int ln)
 
 	if (!app.tail || !app.tail->prev)
 	{
-		fprintf(stderr, "L%d: can't sub, stack too short", ln);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", ln);
 		end_app();
 		exit(EXIT_FAILURE);
 	}
