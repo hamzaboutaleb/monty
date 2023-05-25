@@ -1,4 +1,4 @@
 push 1
-pall
-swap
+push 2
+push a
 pall
