@@ -82,6 +82,8 @@ void nop_command(stack_t**, unsigned int);
 void sub_command(stack_t**, unsigned int);
 void div_command(stack_t**, unsigned int);
 void mul_command(stack_t**, unsigned int);
+void mod_command(stack_t**, unsigned int);
+void comment_command(stack_t**, unsigned int);
 char *next_token();
 void end_app(void);
 #endif
