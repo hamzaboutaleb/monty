@@ -7,7 +7,8 @@
   */
 int is_number(char *s)
 {
-
+	if (*s == '-' || *s == '+')
+		s++;
 	while (*s != '\0')
 	{
 		if (!isdigit(*s))
