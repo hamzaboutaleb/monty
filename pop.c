@@ -14,6 +14,7 @@ void pop_command(stack_t **stack, unsigned int line)
 	if (app.tail == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n", app.line);
+		end_app();
 		exit(EXIT_FAILURE);
 	}
 
