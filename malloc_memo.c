@@ -13,7 +13,7 @@ void *malloc_memo(size_t size)
 	memo = malloc(size);
 	if (memo == NULL)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 
