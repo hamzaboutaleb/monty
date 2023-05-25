@@ -38,6 +38,11 @@ void handle_token(char *token)
 	void (*fun_ptr)(stack_t **, unsigned int);
 
 	fun_ptr = get_fun(token);
+	if (fun_ptr == NULL)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", app.line, token);
+		exit(EXIT_FAILURE);
+	}
 	fun_ptr(&app.head, app.line);
 }
 
