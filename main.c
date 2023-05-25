@@ -12,7 +12,7 @@ void init_app(FILE *file)
 	app.head = NULL;
 	app.tail = NULL;
 	app.file = file;
-	app.line = 1;
+	app.line = 0;
 }
 /**
   * end_app - free memory
