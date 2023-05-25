@@ -24,7 +24,12 @@ void push_command(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	node = stack_node(value, NULL, NULL);
-
+	if (node == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		app_end();
+		exit(EXIT_FAILURE);
+	}
 	if (*stack == NULL)
 	{
 		app.head = node;
