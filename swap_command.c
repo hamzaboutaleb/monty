@@ -11,7 +11,7 @@ void swap_command(stack_t **s, unsigned int line)
 	(void) s;
 	(void) line;
 
-	if (app.tail->prev == NULL)
+	if (app.tail->prev == NULL || next_token() != NULL)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", app.line);
 		exit(EXIT_FAILURE);
