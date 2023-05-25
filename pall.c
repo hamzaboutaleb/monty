@@ -8,10 +8,13 @@
 void pall_command(stack_t **s, unsigned int line)
 {
 	stack_t *el;
+	char *ss;
 	(void) line;
 	(void) s;
 
 	if (app.tail == NULL)
+		return;
+	if (next_token() != NULL)
 		return;
 	el = app.tail;
 	while (el != NULL)

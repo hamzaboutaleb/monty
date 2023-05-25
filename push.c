@@ -37,5 +37,3 @@ void push_command(stack_t **stack, unsigned int line_number)
 	app.tail = node;
 }
 
-
-
