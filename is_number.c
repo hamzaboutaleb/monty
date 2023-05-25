@@ -10,7 +10,7 @@ int is_number(char *s)
 
 	while (*s != '\0')
 	{
-		if (isdigit(*s) == 0)
+		if (!isdigit(*s))
 			return (0);
 		s++;
 	}
