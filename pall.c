@@ -8,7 +8,6 @@
 void pall_command(stack_t **s, unsigned int line)
 {
 	stack_t *el;
-	char *ss;
 	(void) line;
 	(void) s;
 
